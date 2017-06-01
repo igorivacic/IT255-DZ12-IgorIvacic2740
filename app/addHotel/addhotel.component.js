@@ -30,24 +30,27 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
         execute: function() {
             AddHotelComponent = (function () {
                 function AddHotelComponent(builder, http, router) {
+                    this.select = 1;
                     this.http = http;
                     this.router = router;
                     this.hotelForm = builder.group({
-                        naziv: ["", common_1.Validators],
-                        zvezdice: ["", common_1.Validators],
-                        komentar: ["", common_1.Validators],
+                        naziv: ["", common_1.Validators.none],
+                        zvezdice: ["", common_1.Validators.none],
+                        komentar: ["", common_1.Validators.none],
                     });
                 }
                 AddHotelComponent.prototype.onAddRoom = function () {
                     var _this = this;
-                    var data = "&naziv=" + this.hotelForm.value.naziv + "&zvezdice=" + this.hotelForm.value.zvezdice + "&komentar=" + this.hotelForm.value.komentar;
+                    var data = "&naziv=" + this.hotelForm.value.naziv +
+                        "&zvezdice=" + this.hotelForm.value.zvezdice +
+                        "&komentar=" + this.hotelForm.value.komentar;
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/x-www-form-urlencoded');
                     this.http.post('http://localhost/php/addhotel.php', data, { headers: headers })
                         .map(function (res) { return res; })
                         .subscribe(function (data) { return _this.postResponse = data; }, function (err) { return alert(JSON.stringify(err)); }, function () {
                         if (_this.postResponse._body.indexOf("error") === -1) {
-                            alert("Dodali ste hotel");
+                            alert("Uspesno ste hotel");
                             _this.router.parent.navigate(['./Home']);
                         }
                         else {
@@ -59,7 +62,9 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
                     core_1.Component({
                         selector: 'AddHotel',
                         templateUrl: 'app/addhotel/addhotel.html',
-                        styleUrls: ['css/styles.css']
+                        styleUrls: ['css/style.css'],
+                        directives: [common_1.FORM_DIRECTIVES],
+                        viewBindings: [common_1.FORM_BINDINGS]
                     }), 
                     __metadata('design:paramtypes', [common_1.FormBuilder, http_1.Http, router_1.Router])
                 ], AddHotelComponent);

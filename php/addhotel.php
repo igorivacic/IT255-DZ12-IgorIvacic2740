@@ -13,5 +13,4 @@ $komentar = intval($_POST['komentar']);
 
 addHotel($naziv,$zvezdice,$komentar);
 }
-
 ?>

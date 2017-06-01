@@ -7,6 +7,6 @@ if($_SERVER['REQUEST_METHOD'] == "OPTIONS"){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "it255-hotel";
+$db = "methotel";
 $conn = new mysqli($servername, $username, $password, $db);
 ?>

@@ -1,49 +1,24 @@
- <div class="wrapper">
-    <form class="form-signin">       
-      <h2 class="form-signin-heading">Please login</h2>
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
-    </form>
+
+<div class="row">
+        <div class="box">
+          <div class="col-lg-12 text-center">
+
+
+          <form role="form" [ngFormModel]="signinForm">
+<div class="alert alert-danger" style="display: none;">
+
+</div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control"  ngControl='username'>
   </div>
-
-<footer class="navbar-fixed-bottom">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-     
-     <h2 class="heading">Contact </h2>
-        <ul>
-          <li>Address: Dubai 52</li>
-          <li>Contact phone: 066/555-333<li>
-
-          </ul>
+  <div class="form-group">
+    <label for="pwd">Password</label>
+    <input type="password" class="form-control" ngControl='password'>
   </div>
+  <button (click)="onSignIn()" class="btn btn-default">Sign in</button>
+</form>
 
-
-    
-
-       <div class="col-md-6">
-        <h2 class="heading">Follow us</h2>
-              <a class="social-icons" href="http://facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              <a class="social-icons" href="http://instagram.com" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
-              <a class="social-icons" href="http://youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-              <a class="social-icons" href="http://twitter.com" target="_blank"> <i class="fa fa-twitter" aria-hidden="true"></i></a>
-
-
-  </div>
-
-
-  
-       
-    </div>
-
-  </div>
-
-
-</footer>
-
-
+     </div>
+        </div>
+      </div>
