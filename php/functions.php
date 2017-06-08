@@ -28,7 +28,7 @@ function deleteRoom($id){
 global $conn;
 $rarray = array();
 $result = $conn->prepare("DELETE FROM rooms WHERE id=?");
-$result->bind_param("i",$id);
+$result->bind_param("s",$id);
 $result->execute();
 $rarray['success'] = "Deleted successfully";
 return json_encode($rarray);
