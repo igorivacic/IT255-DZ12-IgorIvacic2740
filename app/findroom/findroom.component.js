@@ -45,6 +45,14 @@ System.register(['angular2/core', 'angular2/http', 'app/pipe/search', 'app/pipe/
                         _this.rooms = rooms.rooms;
                     });
                 }
+                FindRoomComponent.prototype.removeRoom = function (event, item) {
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+                    headers.append('token', localStorage.getItem('token'));
+                    this.http.get('http://localhost/php/deleterooms.php?id=' + item, { headers: headers }).subscribe(function (data) {
+                        event.srcElement.parentElement.parentElement.remove();
+                    });
+                };
                 FindRoomComponent = __decorate([
                     core_1.Component({
                         selector: 'FindRoom',

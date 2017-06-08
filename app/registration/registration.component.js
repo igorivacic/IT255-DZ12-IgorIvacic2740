@@ -44,7 +44,10 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
                 }
                 RegistrationComponent.prototype.onSignUp = function () {
                     var _this = this;
-                    var data = "username=" + this.signupForm.value.username + "&password=" + this.signupForm.value.password + "&firstName=" + this.signupForm.value.firstName + "&lastName=" + this.signupForm.value.lastName;
+                    var data = "username=" + this.signupForm.value.username +
+                        "&password=" + this.signupForm.value.password +
+                        "&firstName=" + this.signupForm.value.firstName +
+                        "&lastName=" + this.signupForm.value.lastName;
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/x-www-form-urlencoded');
                     this.http.post('http://localhost/php/sigup.php', data, { headers: headers })

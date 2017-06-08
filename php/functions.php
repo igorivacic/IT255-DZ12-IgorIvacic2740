@@ -2,7 +2,6 @@
 include("config.php");
 
 
-
 function checkIfLoggedIn(){
 global $conn;
 if(isset($_SERVER['HTTP_TOKEN'])){
@@ -23,7 +22,18 @@ return false;
 else{
 return false;
 }
+
+
+function deleteRoom($id){
+global $conn;
+$rarray = array();
+$result = $conn->prepare("DELETE FROM rooms WHERE id=?");
+$result->bind_param("i",$id);
+$result->execute();
+$rarray['success'] = "Deleted successfully";
+return json_encode($rarray);
 }
+
 function login($username, $password){
 global $conn;
 $rarray = array();
@@ -56,7 +66,6 @@ else{
 return false;
 }
 }
-
 
 
 function singup($firstname, $lastname, $username, $password){

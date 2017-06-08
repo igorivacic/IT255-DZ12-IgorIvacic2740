@@ -34,18 +34,23 @@ export class RegistrationComponent {
   }
 
   onSignUp(): void {
-	var data = "username="+this.signupForm.value.username+"&password="+this.signupForm.value.password+"&firstName="+this.signupForm.value.firstName+"&lastName="+this.signupForm.value.lastName;
+	var data = "username="+this.signupForm.value.username+
+              "&password="+this.signupForm.value.password+
+              "&firstName="+this.signupForm.value.firstName+
+              "&lastName="+this.signupForm.value.lastName;
 	var headers = new Headers();
 	headers.append('Content-Type', 'application/x-www-form-urlencoded');
 	this.http.post('http://localhost/php/sigup.php',data, {headers:headers})
     .map(res => res)
     .subscribe( data => this.postResponse = data,
 	err => {
+
 		var obj = JSON.parse(err._body);
 		document.getElementsByClassName("alert")[0].style.display = "block";
 		document.getElementsByClassName("alert")[0].innerHTML = obj.error.split("\\r\\n").join("<br/>").split("\"").join("");
 	},
 	() => {
+
 		var obj = JSON.parse(this.postResponse._body);
 		localStorage.setItem('token', obj.token);
 	    this.router.parent.navigate(['./Home']);

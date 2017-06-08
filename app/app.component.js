@@ -50,8 +50,8 @@ System.register(['angular2/core', 'angular2/router', './home/home.component', '.
                         { path: './', name: 'Home', component: home_component_1.MainPageComponent, useAsDefault: true },
                         { path: './login', name: 'Login', component: login_component_1.LoginComponent },
                         { path: './register', name: 'Register', component: registration_component_1.RegistrationComponent },
-                        { path: '/findroom', name: 'FindRoom', component: findroom_component_1.FindRoomComponent },
-                        { path: '/addhotel', name: 'AddHotel', component: addhotel_component_1.AddHotelComponent },
+                        { path: './findroom', name: 'FindRoom', component: findroom_component_1.FindRoomComponent },
+                        { path: './addhotel', name: 'AddHotel', component: addhotel_component_1.AddHotelComponent },
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], AppComponent);
